@@ -62,7 +62,7 @@ export function generateQRISCode({
   
   const dataForCRC = qrisData + '6304';
   const crc = calculateCRC16(dataForCRC);
-  qrisData += '63' + '04' + crc;
+  qrisData += '6304' + crc;
   
   return qrisData;
 }
