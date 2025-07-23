@@ -9,9 +9,15 @@ on:
       - main
     types: [opened, synchronize, reopened]
 
+env:
+  NODE_VERSION: '20'
+  FIREBASE_PROJECT_ID: qr-code-generator-84e46
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install dependencies
@@ -35,7 +41,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QR_CODE_GENERATOR_84E46 }}'
           channelId: live
-          projectId: qr-code-generator-84e46
+          projectId: ${{ env.FIREBASE_PROJECT_ID }}
 
       - name: Deploy to Firebase Hosting (Preview)
         if: github.event_name == 'pull_request'
@@ -43,5 +49,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QR_CODE_GENERATOR_84E46 }}'
-          projectId: qr-code-generator-84e46
+          projectId: ${{ env.FIREBASE_PROJECT_ID }}
           expires: 7d
