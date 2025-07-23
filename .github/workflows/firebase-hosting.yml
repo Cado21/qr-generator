@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+    types: [opened, synchronize, reopened]
 
 jobs:
   build_and_deploy:
@@ -28,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to Firebase Hosting (Production)
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -43,4 +44,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QR_CODE_GENERATOR_84E46 }}'
           projectId: qr-code-generator-84e46
-          expires: 7d 
+          expires: 7d
