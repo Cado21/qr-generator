@@ -1,8 +1,6 @@
 import React from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import { downloadQRCode, generateFilename } from '../utils/downloadUtils';
-import { analytics } from '../firebase';
-import { logEvent } from 'firebase/analytics';
 
 const GeneratorSection = React.memo(({ 
   inputText, 
@@ -21,7 +19,7 @@ const GeneratorSection = React.memo(({
     const success = downloadQRCode(filename);
     
     if (success) {
-      logEvent(analytics, 'qr_downloaded', {
+      console.log('QR downloaded:', {
         qr_type: qrValue.startsWith('00020101') ? 'qris' : 'custom',
         filename: filename
       });

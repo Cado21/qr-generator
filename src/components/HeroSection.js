@@ -6,10 +6,10 @@ const HeroSection = React.memo(({ socialLinks, onSocialClick }) => {
       <div className="hero-content">
         <div className="hero-icon">🔒</div>
         <h1 className="hero-title">QR Code Generator</h1>
+{/* 
         <div className="warning-badge">
           ⚠️ Hanya untuk tujuan edukasi
         </div>
-
         <div className="creator-section">
           <p className="creator-text">Dibuat oleh: Ricardo Tan</p>
           <p className="follow-text">
@@ -31,7 +31,7 @@ const HeroSection = React.memo(({ socialLinks, onSocialClick }) => {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

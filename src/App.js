@@ -1,12 +1,11 @@
 import {useState, useMemo, useCallback} from 'react';
 import {FaInstagram, FaTiktok, FaYoutube} from 'react-icons/fa';
+import { Analytics } from '@vercel/analytics/react'; // Tambahkan ini
 import HeroSection from './components/HeroSection';
 import GeneratorSection from './components/GeneratorSection';
 import SecuritySection from './components/SecuritySection';
 import EducationSection from './components/EducationSection';
 import {generateRandomQRIS} from './utils/qrisGenerator';
-import {analytics} from './firebase';
-import {logEvent} from 'firebase/analytics';
 
 import './App.css';
 
@@ -60,19 +59,12 @@ function App() {
   const [isGenerating, setIsGenerating] = useState(false);
 
   const trackSocialClick = useCallback((platform) => {
-    logEvent(analytics, 'social_media_click', {
-      platform: platform
-    });
+    console.log('Social click:', platform); // Alternatif sederhana
   }, []);
 
   const generateQR = useCallback(() => {
     if (!inputText.trim()) return;
     setIsGenerating(true);
-
-    logEvent(analytics, 'qr_generated', {
-      qr_type: 'custom',
-      text_length: inputText.length
-    });
 
     setTimeout(() => {
       setQrValue(inputText);
@@ -84,10 +76,6 @@ function App() {
     const sampleQRIS = generateRandomQRIS();
     setInputText(sampleQRIS);
     setIsGenerating(true);
-
-    logEvent(analytics, 'qr_generated', {
-      qr_type: 'qris_sample'
-    });
 
     setTimeout(() => {
       setQrValue(sampleQRIS);
@@ -136,6 +124,7 @@ function App() {
       <footer className="footer">
         <p>Dibuat untuk tujuan edukasi • Selalu utamakan keamanan</p>
       </footer>
+      <Analytics />
     </div>
   );
 }
