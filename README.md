@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# 🔗 Generator QR Edukasi - Ricardo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikasi web untuk membuat QR Code dengan fokus edukasi dan keamanan. Mendukung pembuatan QR Code umum dan simulasi QRIS untuk pembelajaran.
 
-## Available Scripts
+## ✨ Fitur Utama
 
-In the project directory, you can run:
+- 🎯 **Generator QR Code Universal** - Buat QR code dari teks, URL, atau data apapun
+- 💳 **Simulasi QRIS** - Generate sample QRIS code untuk pembelajaran (DEMO ONLY)
+- 📱 **Responsive Design** - Tampilan optimal di desktop dan mobile
+- 📥 **Download PNG** - Unduh QR code dalam format PNG berkualitas tinggi
+- 🔒 **Edukasi Keamanan** - Informasi penting tentang keamanan QR code
+- 📊 **Firebase Analytics** - Tracking penggunaan untuk insights
 
-### `npm start`
+## 🚀 Demo Live
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Production:** [https://qr-code-generator-84e46.web.app](https://qr-code-generator-84e46.web.app)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Teknologi
 
-### `npm test`
+- **Frontend:** React 18, CSS3
+- **QR Generation:** qrcode library
+- **Hosting:** Firebase Hosting
+- **Analytics:** Firebase Analytics
+- **CI/CD:** GitHub Actions
+- **Deployment:** Otomatis via GitHub Actions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📦 Instalasi & Development
 
-### `npm run build`
+### Prerequisites
+- Node.js >= 18.0.0
+- npm atau yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup Local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone repository
+git clone https://github.com/username/qr-generator.git
+cd qr-generator
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Jalankan development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Buka [http://localhost:3000](http://localhost:3000) untuk melihat aplikasi.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Build Production
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# Build untuk production
+npm run build
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Test build lokal
+npm install -g serve
+serve -s build
+```
 
-## Learn More
+## 🔧 Scripts Available
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Command | Deskripsi |
+|---------|----------|
+| `npm start` | Jalankan development server |
+| `npm test` | Jalankan test suite |
+| `npm run build` | Build untuk production |
+| `npm run deploy` | Deploy ke Firebase Hosting |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Otomatis via GitHub Actions
 
-### Analyzing the Bundle Size
+- **Production:** Push ke `main` branch
+- **Preview:** Buat Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Manual Deployment
 
-### Making a Progressive Web App
+```bash
+# Login ke Firebase
+firebase login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Deploy
+npm run deploy
+```
 
-### Advanced Configuration
+## ⚠️ Disclaimer Keamanan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**PENTING:** 
+- QRIS yang dihasilkan adalah **DEMO/SIMULASI** untuk tujuan edukasi
+- **JANGAN** gunakan untuk transaksi nyata
+- Selalu verifikasi QR code dari sumber terpercaya
+- Aplikasi ini tidak menyimpan data pribadi atau finansial
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork repository
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
 
-### `npm run build` fails to minify
+## 👨‍💻 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Ricardo** - [GitHub Profile](https://github.com/Cado21)
+
+## 🙏 Acknowledgments
+
+- [Create React App](https://create-react-app.dev/) untuk boilerplate
+- [qrcode](https://www.npmjs.com/package/qrcode) untuk QR generation
+- [Firebase](https://firebase.google.com/) untuk hosting dan analytics
+- Komunitas open source untuk inspirasi dan tools
+
+---
+
+⭐ **Jika project ini membantu, berikan star di GitHub!**
